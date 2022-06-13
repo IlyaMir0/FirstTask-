@@ -8,7 +8,7 @@ hr {
     height: 1px;
 }
 .container {
-    max-width: 1300px;
+    max-width: 720px;
     margin: 0 auto;
 }
 .header {
@@ -17,7 +17,6 @@ hr {
     background-color: $green;
     box-shadow: 0px 7px 6px -1px rgba(34, 60, 80, 0.34);
     &__nav {
-        width: 55%;
         margin-left: auto;
         margin-right: auto;
         display: flex;
@@ -112,11 +111,10 @@ hr {
     }
 }
 .footer {
-    display: flex;
-    justify-content: center;
+
     background: $red;
     &__info {
-        width: 58%;
+        width: 100;
         padding: 40px 0px 40px 0px;
         display: flex;
         justify-content: space-between;
