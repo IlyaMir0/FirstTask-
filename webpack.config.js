@@ -1,13 +1,20 @@
 const HtmlWebpackPlugin          = require('html-webpack-plugin');
 const MiniCssExtractPlugin       = require('mini-css-extract-plugin');
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
+const CopyPlugin = require("copy-webpack-plugin");
 
 const env = process.env.NODE_ENV;
 
 module.exports = {
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: "src", to: "dest" },
+      ],
+    }),
+  ],
   mode: process.env.NODE_ENV,
   entry: './src/js/index.js',
-
   output: {
     publicPath: '/',
     filename: env === 'development' ? 'js/bundle.js' : 'js/bundle.[contenthash].min.js',
@@ -23,6 +30,13 @@ module.exports = {
 
   module: {
     rules: [
+      {
+        test: /\.(gif|png|jpg|jpeg|svg)?$/,
+        loader: 'file-loader',
+        options: {
+          name: 'src/img/[name].[ext]',
+        }
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
