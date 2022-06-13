@@ -5,7 +5,7 @@ const PurgeCssPlugin         = require('purgecss-webpack-plugin');
 const HtmlWebpackPlugin      = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const common = require('./weather.config.js');
+const common = require('./webpack.config.js');
 
 const purgeFromTailwind = content => content.match(/[\w-/:]+(?<!:)/g) || [];
 
@@ -29,7 +29,7 @@ module.exports = merge(common, {
 
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: '.src/html/index.html',
+      template: 'src/html/index.html',
       minify: {
         collapseWhitespace: true,
         removeComments: true,
